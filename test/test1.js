@@ -2,15 +2,15 @@ const expect = require('chai').expect;
 const supertest = require('supertest');
 const api = supertest('https://dnypx9w-dev.nbd.betalectic.tech');   // baseurl to send http requests
 
-describe('', () => {
+describe('', () => {    // 0 - testing ping
 
     let accessToken, refreshToken, authToken;
 
     it('Successful Ping', (done) => {
-        api.get('/users/ping')
-        .expect(200)
+        api.get('/users/ping')  // get request to ping api
+        .expect(200)    // check status code
         .end((err, res) => {
-            expect(res.body.a + res.body.b, "Good ping").to.equal(res.body.sum);
+            expect(res.body.a + res.body.b, "Good ping").to.equal(res.body.sum);    // check correctness of response payload
             done();
         });
     });
